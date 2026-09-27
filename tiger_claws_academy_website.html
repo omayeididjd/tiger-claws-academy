@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية مخالب النمر | Tiger Claws Academy - كراتيه وكيك بوكسينغ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#E50914',
+                            darkRed: '#B20710',
+                            accentRed: '#FF2E38',
+                            gold: '#FFD700',
+                            goldHover: '#E6C200',
+                            dark: '#0B0C10',
+                            cardBg: '#14161D',
+                            border: '#232733'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #0B0C10;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+        
+        .glow-red {
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.35);
+        }
+        .glow-gold {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+        }
+        .text-gradient-red {
+            background: linear-gradient(135deg, #FF3B47 0%, #E50914 50%, #990000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF099 0%, #FFD700 50%, #DAA520 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(11, 12, 16, 0.7) 0%, rgba(11, 12, 16, 0.95) 80%, #0B0C10 100%), 
+                        url('https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .modal-blur {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-red to-black p-0.5 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center border border-brand-red/40">
+                            <i class="fa-solid font-black fa-hand-fist text-brand-red text-2xl group-hover:text-brand-gold transition-colors"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xl font-black tracking-wide text-white block leading-none font-cairo">
+                            TIGER CLAWS <span class="text-brand-red">ACADEMY</span>
+                        </span>
+                        <span class="text-xs text-brand-gold font-bold tracking-widest block mt-1">أكاديمية مخالب النمر</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-bold">
+                    <a href="#hero" class="text-gray-300 hover:text-brand-red transition-colors">الرئيسية</a>
+                    <a href="#offers" class="text-gray-300 hover:text-brand-red transition-colors">العروض والتسهيلات</a>
+                    <a href="#coach" class="text-gray-300 hover:text-brand-red transition-colors">الكابتن</a>
+                    <a href="#classes" class="text-gray-300 hover:text-brand-red transition-colors">الاشتراكات</a>
+                    <a href="#booking" class="text-gray-300 hover:text-brand-red transition-colors">حصة تجريبية</a>
+                    <a href="#contact" class="text-gray-300 hover:text-brand-red transition-colors">التواصل والموقع</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/962796919109" target="_blank" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 shadow-md hover:scale-105">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>واتساب مباشر</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-cardBg border-b border-brand-border px-4 pt-2 pb-6 space-y-3 font-bold">
+            <a href="#hero" class="block py-2 text-gray-300 hover:text-brand-red border-b border-brand-border/50">الرئيسية</a>
+            <a href="#offers" class="block py-2 text-gray-300 hover:text-brand-red border-b border-brand-border/50">العروض والتسهيلات</a>
+            <a href="#coach" class="block py-2 text-gray-300 hover:text-brand-red border-b border-brand-border/50">الكابتن والمدرب</a>
+            <a href="#classes" class="block py-2 text-gray-300 hover:text-brand-red border-b border-brand-border/50">الرياضات والاشتراكات</a>
+            <a href="#booking" class="block py-2 text-gray-300 hover:text-brand-red border-b border-brand-border/50">حجز حصة تجريبية مجاناً</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-brand-red">التواصل والموقع</a>
+            <a href="https://wa.me/962796919109" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 bg-emerald-600 text-white py-3 rounded-xl">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>تواصل عبر الواتساب</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen pt-32 pb-20 flex items-center hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    
+                    <!-- Free Trial Badge -->
+                    <div class="inline-flex items-center gap-2 bg-brand-red/20 border border-brand-red/50 text-brand-gold px-4 py-2 rounded-full text-sm font-bold animate-pulse">
+                        <i class="fa-solid fa-gift text-brand-red"></i>
+                        <span>عرض خاص: حصة تجريبية مجانية واحدة لأي رياضة تختارها!</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight font-cairo">
+                        أكاديمية <span class="text-gradient-red">مخالب النمر</span> <br>
+                        <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-200">Tiger Claws Academy</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-tajawal">
+                        ابدأ رحلتك في عالم الفنون القتالية، ابني لياقتك البدنية وقوتك مع تعزيز الثقة بالنفس والانضباط، تحت قيادة وإشراف خبرات رياضية معتمدة.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#booking" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-red to-brand-darkRed hover:from-brand-accentRed hover:to-brand-red text-white text-lg font-black rounded-2xl shadow-lg glow-red hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>احجز حصتك التجريبية الآن</span>
+                        </a>
+                        <a href="https://wa.me/962796919109" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-brand-cardBg border border-brand-border hover:border-brand-gold text-white text-lg font-bold rounded-2xl hover:bg-brand-border/40 transition-all duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
+                            <span>استفسار سريع عبر الواتساب</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlights Pills -->
+                    <div class="pt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+                        <div class="bg-brand-cardBg/80 p-3 rounded-xl border border-brand-border">
+                            <i class="fa-solid fa-user-ninja text-brand-gold text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-gray-300">تدريب احترافي معتمد</span>
+                        </div>
+                        <div class="bg-brand-cardBg/80 p-3 rounded-xl border border-brand-border">
+                            <i class="fa-solid fa-restroom text-brand-red text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-gray-300">غرف تغيير ملابس مجهزة</span>
+                        </div>
+                        <div class="bg-brand-cardBg/80 p-3 rounded-xl border border-brand-border col-span-2 sm:col-span-1">
+                            <i class="fa-solid fa-users text-emerald-400 text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-gray-300">خصم حقيقي للإخوة</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Hero Graphic Box -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Decorative Frame Glow -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-red to-brand-gold rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                        
+                        <div class="relative bg-brand-cardBg border border-brand-border rounded-3xl p-6 sm:p-8 space-y-6 text-center">
+                            <div class="w-24 h-24 mx-auto rounded-full bg-brand-red/10 border-2 border-brand-red flex items-center justify-center glow-red">
+                                <i class="fa-solid fa-trophy text-4xl text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black text-white font-cairo">برامجنا الرياضية</h3>
+                                <p class="text-sm text-gray-400 mt-1">اختر رياضة وشارك في حصتك الأولى مجاناً</p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-4 rounded-xl bg-brand-dark border border-brand-border hover:border-brand-red transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-brand-red/20 flex items-center justify-center text-brand-red font-bold">🥋</div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-white text-base">رياضة الكراتيه</div>
+                                            <div class="text-xs text-gray-400">بدلة رسمية شاملا مع الاشتراك</div>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full">شامل الزي</span>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 rounded-xl bg-brand-dark border border-brand-border hover:border-brand-red transition-all">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-brand-red/20 flex items-center justify-center text-brand-red font-bold">🥊</div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-white text-base">الكيك بوكسينغ</div>
+                                            <div class="text-xs text-gray-400">قفازات احترافية مع التسجيل</div>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full">شامل القفازات</span>
+                                </div>
+                            </div>
+
+                            <a href="#booking" class="block w-full py-3 bg-brand-red hover:bg-brand-darkRed text-white font-bold rounded-xl text-center transition-colors">
+                                سجل اسمك للحصة المجانية
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers & Highlights Banner -->
+    <section id="offers" class="py-12 bg-gradient-to-r from-brand-red/10 via-brand-cardBg to-brand-red/10 border-y border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                
+                <!-- Special Family Offer Card -->
+                <div class="bg-gradient-to-br from-brand-dark to-brand-cardBg p-6 sm:p-8 rounded-2xl border-2 border-brand-gold/50 relative overflow-hidden shadow-xl">
+                    <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl"></div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-gold/20 border border-brand-gold flex items-center justify-center text-brand-gold text-2xl shrink-0">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-brand-gold text-black font-black text-xs rounded-full mb-2">عرض الأخوة الحصري</span>
+                            <h3 class="text-2xl font-black text-white font-cairo">خصم خاص جداً للأخوة!</h3>
+                            <p class="text-gray-300 mt-2 text-sm sm:text-base leading-relaxed">
+                                عند تسجيل الأخوة معاً، يحصل كل شخص على سعر تخفيضي استثنائي في الشهر الأول: <span class="text-brand-gold font-bold text-lg">40 دينار فقط</span> بدلاً من <span class="line-through text-gray-500">45 دينار</span> (شامل المعدات أو الزي)!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facilities Highlights -->
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-brand-cardBg p-5 rounded-xl border border-brand-border flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/30 flex items-center justify-center text-brand-red text-xl shrink-0">
+                            <i class="fa-solid fa-door-open"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">غرف غيار مخصصة</h4>
+                            <p class="text-xs text-gray-400 mt-0.5">غرف مريحة لتغيير الملابس وحفظ أمتعة اللاعبين</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-cardBg p-5 rounded-xl border border-brand-border flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/30 flex items-center justify-center text-brand-red text-xl shrink-0">
+                            <i class="fa-solid fa-restroom"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">حمامات وخدمات</h4>
+                            <p class="text-xs text-gray-400 mt-0.5">حمامات مجهزة ومرافق نظيفة داخل الأكاديمية</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Head Coach Section -->
+    <section id="coach" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl sm:text-4xl font-black text-white font-cairo">الإشراف الفني والتدريب</h2>
+                <div class="w-20 h-1.5 bg-brand-red mx-auto my-4 rounded-full"></div>
+                <p class="text-gray-400 text-lg">تحت قيادة وإشراف خبرات رياضية عالية وموثوقة لضمان أقصى استفادة للاعبين</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-brand-cardBg border border-brand-border rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-brand-red via-brand-gold to-brand-red"></div>
+                
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Coach Avatar Badge Icon -->
+                    <div class="md:col-span-4 flex justify-center">
+                        <div class="relative">
+                            <div class="w-48 h-48 rounded-full bg-gradient-to-tr from-brand-red via-brand-dark to-brand-gold p-1 shadow-2xl">
+                                <div class="w-full h-full bg-brand-dark rounded-full flex flex-col items-center justify-center text-center p-4 border border-brand-border">
+                                    <i class="fa-solid fa-user-ninja text-6xl text-brand-gold mb-2"></i>
+                                    <span class="text-xs font-bold text-brand-red tracking-wider">MASTER COACH</span>
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-brand-gold text-black font-black text-xs px-4 py-1.5 rounded-full shadow-lg border border-white/20 whitespace-nowrap">
+                                🥋 5 دان كراتيه
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coach Information -->
+                    <div class="md:col-span-8 text-center md:text-right space-y-4">
+                        <div class="inline-block bg-brand-red/10 border border-brand-red/30 px-3 py-1 rounded-md text-brand-red text-xs font-bold">
+                            المدير الفني والمدرب الرئيسي
+                        </div>
+                        <h3 class="text-3xl font-black text-white font-cairo">المدرب حاتم غسان</h3>
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                            <span class="bg-brand-dark px-3 py-1 rounded-lg border border-brand-border text-xs font-bold text-brand-gold">
+                                <i class="fa-solid fa-award ml-1"></i> حزام أسود 5 دان كراتيه
+                            </span>
+                            <span class="bg-brand-dark px-3 py-1 rounded-lg border border-brand-border text-xs font-bold text-gray-300">
+                                <i class="fa-solid fa-shield-halved ml-1"></i> خبرة وتأهيل عالي
+                            </span>
+                        </div>
+
+                        <p class="text-gray-300 text-base leading-relaxed font-tajawal pt-2">
+                            "الفنون القتالية ليست مجرد حركات دفاعية، بل هي مدرسة لبناء الشخصية، تعزيز التركيز، والانضباط الذاتي لدى الأبناء والشباب. نسعى دائماً لتوجيه اللاعبين وتطوير قدراتهم البدنية والعقلية في بيئة تحفيزية وآمنة."
+                        </p>
+
+                        <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4">
+                            <a href="#booking" class="inline-flex items-center gap-2 text-brand-gold hover:text-white font-bold text-sm transition-colors">
+                                <span>احجز حصتك تحت إشراف الكابتن</span>
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Classes & Subscription Rates Section -->
+    <section id="classes" class="py-20 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-white font-cairo">الرياضات وباقات الاشتراكات</h2>
+                <div class="w-20 h-1.5 bg-brand-red mx-auto my-4 rounded-full"></div>
+                <p class="text-gray-400 text-lg">اشتراكات شهرية واضحة ومناسبة بدون التزامات طويلة الأجل، مع هدايا المعدات في الشهر الأول</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Karate Card -->
+                <div class="bg-brand-cardBg border-2 border-brand-border hover:border-brand-red rounded-3xl p-6 sm:p-8 relative flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] shadow-xl group">
+                    <div class="absolute top-6 left-6">
+                        <span class="text-4xl">🥋</span>
+                    </div>
+
+                    <div>
+                        <span class="text-xs font-extrabold text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30">
+                            تأهيل وانضباط
+                        </span>
+                        <h3 class="text-3xl font-black text-white mt-3 font-cairo">رياضة الكراتيه</h3>
+                        <p class="text-gray-400 text-sm mt-1">تنمية السرعة، اللياقة البدنية، الدفاع عن النفس والتركيز.</p>
+
+                        <!-- Pricing Table / Details -->
+                        <div class="my-6 space-y-3">
+                            <div class="bg-brand-dark p-4 rounded-2xl border border-brand-border flex items-center justify-between">
+                                <div>
+                                    <div class="text-xs text-gray-400 font-bold">الشهر الأول (شامل البدلة الرسمية)</div>
+                                    <div class="text-2xl font-black text-brand-red">45 <span class="text-sm text-white">دينار</span></div>
+                                </div>
+                                <span class="bg-brand-red/20 text-brand-red text-xs font-bold px-2.5 py-1 rounded-md">شامل الزي كامل</span>
+                            </div>
+
+                            <div class="bg-brand-dark p-4 rounded-2xl border border-brand-border flex items-center justify-between">
+                                <div>
+                                    <div class="text-xs text-gray-400 font-bold">التجديد الشهري بعد ذلك</div>
+                                    <div class="text-xl font-bold text-white">25 <span class="text-xs text-gray-300">دينار / شهرياً</span></div>
+                                </div>
+                                <i class="fa-solid fa-rotate-right text-gray-500"></i>
+                            </div>
+                        </div>
+
+                        <!-- Info List -->
+                        <ul class="space-y-3 text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-shirt text-brand-gold"></i>
+                                <span><strong>الزي المطلوب:</strong> بدلة الكراتيه الرسمية (مشمولة بالأول)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-clock text-brand-gold"></i>
+                                <span><strong>الأوقات والتسجيل:</strong> الاستفسار المباشر عبر الواتساب</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>حصة تجريبية واحدة مجانية قبل الاشتراك</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#booking" onclick="selectSportInForm('karate')" class="w-full py-3.5 bg-brand-red hover:bg-brand-darkRed text-white font-black rounded-xl text-center transition-colors shadow-md flex items-center justify-center gap-2">
+                        <span>احجز حصتك المجانية للكراتيه</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                </div>
+
+                <!-- Kickboxing Card -->
+                <div class="bg-brand-cardBg border-2 border-brand-border hover:border-brand-gold rounded-3xl p-6 sm:p-8 relative flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] shadow-xl group">
+                    <div class="absolute top-6 left-6">
+                        <span class="text-4xl">🥊</span>
+                    </div>
+
+                    <div>
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-wider bg-brand-red/10 px-3 py-1 rounded-full border border-brand-red/30">
+                            قوة وحرق دهون
+                        </span>
+                        <h3 class="text-3xl font-black text-white mt-3 font-cairo">الكيك بوكسينغ</h3>
+                        <p class="text-gray-400 text-sm mt-1">تفريغ الطاقات، زيادة اللياقة العالية، وتقنيات اللكم والرفس.</p>
+
+                        <!-- Pricing Table / Details -->
+                        <div class="my-6 space-y-3">
+                            <div class="bg-brand-dark p-4 rounded-2xl border border-brand-border flex items-center justify-between">
+                                <div>
+                                    <div class="text-xs text-gray-400 font-bold">الشهر الأول (شامل القفازات)</div>
+                                    <div class="text-2xl font-black text-brand-gold">45 <span class="text-sm text-white">دينار</span></div>
+                                </div>
+                                <span class="bg-brand-gold/20 text-brand-gold text-xs font-bold px-2.5 py-1 rounded-md">شامل قفازات التمرين</span>
+                            </div>
+
+                            <div class="bg-brand-dark p-4 rounded-2xl border border-brand-border flex items-center justify-between">
+                                <div>
+                                    <div class="text-xs text-gray-400 font-bold">التجديد الشهري بعد ذلك</div>
+                                    <div class="text-xl font-bold text-white">25 <span class="text-xs text-gray-300">دينار / شهرياً</span></div>
+                                </div>
+                                <i class="fa-solid fa-rotate-right text-gray-500"></i>
+                            </div>
+                        </div>
+
+                        <!-- Info List -->
+                        <ul class="space-y-3 text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-vest text-brand-red"></i>
+                                <span><strong>الزي المطلوب:</strong> أي ملابس رياضية مريحة</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-clock text-brand-red"></i>
+                                <span><strong>أوقات التمارين:</strong> من 7:30 مساءً إلى 8:30 مساءً</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>حصة تجريبية واحدة مجانية لجميع المشتركين الجدد</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#booking" onclick="selectSportInForm('kickboxing')" class="w-full py-3.5 bg-gradient-to-r from-brand-gold to-yellow-600 hover:from-yellow-500 hover:to-brand-gold text-black font-black rounded-xl text-center transition-all shadow-md flex items-center justify-center gap-2">
+                        <span>احجز حصتك المجانية للكيك بوكسينغ</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="py-20 relative bg-gradient-to-b from-brand-dark via-brand-cardBg to-brand-dark border-t border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-brand-cardBg border-2 border-brand-red/40 rounded-3xl p-6 sm:p-10 shadow-2xl relative glow-red">
+                
+                <div class="text-center mb-8">
+                    <span class="inline-block bg-brand-red text-white text-xs font-black px-3 py-1 rounded-full mb-2">
+                        سجل مجاناً الآن
+                    </span>
+                    <h2 class="text-3xl font-black text-white font-cairo">حجز الحصة التجريبية المجانية</h2>
+                    <p class="text-gray-400 text-sm mt-1">قم بتعبئة البيانات أدناه للبدء في حصتك التجريبية الأولى مباشرة</p>
+                </div>
+
+                <form id="trialForm" class="space-y-5">
+                    
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <!-- Full Name -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 mb-2">الاسم الكامل / اسم المشترك *</label>
+                            <div class="relative">
+                                <input type="text" id="fullname" required placeholder="مثال: أحمد خالد" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-red text-sm">
+                                <i class="fa-solid fa-user absolute left-4 top-3.5 text-gray-500"></i>
+                            </div>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 mb-2">رقم الهاتف / الواتساب *</label>
+                            <div class="relative">
+                                <input type="tel" id="phone" required placeholder="079XXXXXXX" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-red text-sm text-left dir-ltr">
+                                <i class="fa-solid fa-phone absolute left-4 top-3.5 text-gray-500"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <!-- Sport Choice -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 mb-2">اختر الرياضة *</label>
+                            <select id="sport" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-red text-sm">
+                                <option value="الكراتيه🥋">الكراتيه (Karate)🥋</option>
+                                <option value="الكيك بوكسينغ🥊">الكيك بوكسينغ (Kickboxing)🥊</option>
+                            </select>
+                        </div>
+
+                        <!-- Preferred Day -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 mb-2">اليوم المفضل للحضور *</label>
+                            <select id="preferredDay" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-red text-sm">
+                                <option value="أقرب موعد متاح">أقرب موعد متاح</option>
+                                <option value="السبت">السبت</option>
+                                <option value="الأحد">الأحد</option>
+                                <option value="الإثنين">الإثنين</option>
+                                <option value="الثلاثاء">الثلاثاء</option>
+                                <option value="الأربعاء">الأربعاء</option>
+                                <option value="الخميس">الخميس</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Notes / Questions -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 mb-2">ملاحظات أو استفسار إضافي (اختياري)</label>
+                        <textarea id="notes" rows="2" placeholder="هل يوجد اشتراك إخوة أو أي استفسار آخر؟" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-brand-red text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-black rounded-xl text-lg transition-all duration-300 shadow-xl flex items-center justify-center gap-3 cursor-pointer">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>تأكيد الطلب وإرسال عبر الواتساب</span>
+                    </button>
+
+                    <p class="text-center text-xs text-gray-400 mt-2">
+                        سيتم فتح تطبيق الواتساب مباشرة وتجهيز الرسالة لإرسالها لإدارة الأكاديمية على الرقم <span class="text-emerald-400 font-bold">0796919109</span>
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact" class="py-20 relative bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-white font-cairo">موقعنا ووسائل التواصل</h2>
+                <div class="w-20 h-1.5 bg-brand-red mx-auto my-4 rounded-full"></div>
+                <p class="text-gray-400 text-lg">يسعدنا تواصلكم واستقبالكم في الأكاديمية</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Contact Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <div class="bg-brand-cardBg border border-brand-border rounded-2xl p-6 space-y-6">
+                        
+                        <!-- Phone -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/30 flex items-center justify-center text-brand-red text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-400">رقم الاتصال المباشر والواتساب</h4>
+                                <a href="tel:0796919109" class="text-xl font-black text-white hover:text-brand-red transition-colors block mt-1 dir-ltr text-right">
+                                    0796919109
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Location Link -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-400">خرائط جوجل Google Maps</h4>
+                                <a href="https://maps.app.goo.gl/wL93yUxcCHuyEUaDA" target="_blank" class="text-sm font-bold text-white hover:text-brand-gold transition-colors inline-flex items-center gap-2 mt-1">
+                                    <span>افتح الموقع على خرائط جوجل</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Social Buttons -->
+                        <div class="pt-4 border-t border-brand-border space-y-3">
+                            <h4 class="text-xs font-bold text-gray-400">تابعونا على منصات التواصل الاجتماعى</h4>
+                            
+                            <div class="grid grid-cols-2 gap-3">
+                                <a href="https://www.facebook.com/profile.php?id=100063620376312" target="_blank" class="flex items-center justify-center gap-2 bg-[#1877F2]/20 hover:bg-[#1877F2]/30 border border-[#1877F2]/50 text-white py-2.5 rounded-xl text-xs font-bold transition-all">
+                                    <i class="fa-brands fa-facebook text-base text-[#1877F2]"></i>
+                                    <span>صفحة الفيسبوك</span>
+                                </a>
+
+                                <a href="https://www.instagram.com/tiger_claws_academy" target="_blank" class="flex items-center justify-center gap-2 bg-[#E4405F]/20 hover:bg-[#E4405F]/30 border border-[#E4405F]/50 text-white py-2.5 rounded-xl text-xs font-bold transition-all">
+                                    <i class="fa-brands fa-instagram text-base text-[#E4405F]"></i>
+                                    <span>إنستغرام الأكاديمية</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Quick Callout Card -->
+                    <div class="bg-gradient-to-r from-brand-red to-brand-darkRed p-6 rounded-2xl text-white shadow-xl">
+                        <h4 class="font-black text-lg font-cairo">هل لديك أي سؤال حول المواعيد؟</h4>
+                        <p class="text-xs text-gray-200 mt-1">يمكنك الاستفسار فوراً عبر الواتساب للحصول على إجابات سريعة ومباشرة.</p>
+                        <a href="https://wa.me/962796919109?text=السلام%20عليكم%20استفسار%20عن%20مواعيد%20التمارين%20في%20الأكاديمية" target="_blank" class="inline-flex items-center gap-2 bg-white text-black font-extrabold text-xs px-4 py-2.5 rounded-xl mt-4 hover:bg-gray-100 transition-colors">
+                            <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+                            <span>راسلنا الآن</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Google Maps Frame Box -->
+                <div class="lg:col-span-7 bg-brand-cardBg border border-brand-border rounded-2xl p-4 min-h-[380px] flex flex-col justify-between">
+                    <div class="w-full h-[320px] rounded-xl overflow-hidden relative bg-brand-dark border border-brand-border flex items-center justify-center text-center p-6">
+                        <div class="space-y-4">
+                            <div class="w-16 h-16 rounded-full bg-brand-red/20 text-brand-red flex items-center justify-center mx-auto text-3xl">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">عنوان أكاديمية مخالب النمر</h3>
+                            <p class="text-sm text-gray-400 max-w-md mx-auto">انقر على الزر أدناه للانتقال المباشر وتحديد الاتجاهات عبر تطبيق خرائط جوجل</p>
+                            <a href="https://maps.app.goo.gl/wL93yUxcCHuyEUaDA" target="_blank" class="inline-flex items-center gap-2 bg-brand-gold text-black font-black px-6 py-3 rounded-xl hover:bg-brand-goldHover transition-colors shadow-lg">
+                                <i class="fa-solid fa-route"></i>
+                                <span>فتح خريطة Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-center justify-between text-xs text-gray-400 px-2">
+                        <span><i class="fa-solid fa-circle-info text-brand-gold ml-1"></i> أوقات عمل الكراتيه: حسب الاستفسار</span>
+                        <span><i class="fa-solid fa-clock text-brand-red ml-1"></i> أوقات الكيك بوكسينغ: 7:30 - 8:30 مساءً</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-brand-border py-8 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-hand-fist text-brand-red text-lg"></i>
+                <span class="font-bold text-gray-300">أكاديمية مخالب النمر | Tiger Claws Academy</span>
+            </div>
+            <p>جميع الحقوق محفوظة &copy; 2026 - الكابتن حاتم غسان</p>
+            <div class="flex items-center gap-4 text-gray-400 text-sm">
+                <a href="https://www.facebook.com/profile.php?id=100063620376312" target="_blank" class="hover:text-brand-red"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/tiger_claws_academy" target="_blank" class="hover:text-brand-red"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/962796919109" target="_blank" class="hover:text-emerald-400"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/962796919109" target="_blank" class="fixed bottom-6 left-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-2xl transition-transform duration-300 hover:scale-110 glow-gold" title="تواصل عبر الواتساب">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking any link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Function to select sport programatically from card click
+        function selectSportInForm(sportType) {
+            const sportSelect = document.getElementById('sport');
+            if (sportType === 'karate') {
+                sportSelect.value = 'الكراتيه🥋';
+            } else if (sportType === 'kickboxing') {
+                sportSelect.value = 'الكيك بوكسينغ🥊';
+            }
+        }
+
+        // WhatsApp Form Handling
+        document.getElementById('trialForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('fullname').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const sport = document.getElementById('sport').value;
+            const preferredDay = document.getElementById('preferredDay').value;
+            const notes = document.getElementById('notes').value.trim();
+
+            let message = `مرحباً أكاديمية مخالب النمر 👋\nأود حجز حصة تجريبية مجانية:\n`;
+            message += `👤 *الاسم:* ${name}\n`;
+            message += `📱 *رقم الهاتف:* ${phone}\n`;
+            message += `🥋 *الرياضة المطلوبة:* ${sport}\n`;
+            message += `📅 *اليوم المفضل:* ${preferredDay}\n`;
+            
+            if (notes) {
+                message += `📝 *ملاحظات:* ${notes}\n`;
+            }
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/962796919109?text=${encodedMessage}`;
+
+            // Open WhatsApp in a new window/tab
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
